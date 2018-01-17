@@ -1,0 +1,77 @@
+body {
+    width: 100%;
+}
+
+.container-full {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.header{
+    /* background-color: rgb(230, 230, 230); */
+    height: 10vh;
+    text-align: center;
+}
+
+.chat{
+    height: 30vh;
+    
+}
+.col-md-6 {
+    /* background: rgb(116, 204, 255); */
+    height: 60vh;
+    text-align: center;
+}
+
+.col-md {
+    text-align: center;
+    height: 60vh;
+    /* background-color: rgb(216, 216, 216); */
+}
+
+.row-fix {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    /* margin-right: -15px;
+margin-left: -15px; */
+}
+/* ...............Battlefield.......... */
+
+table{
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: rgb(88, 88, 88);
+}
+
+.battlefield-table {
+    background-color: rgb(116, 204, 255);
+    margin: 0;
+    border-collapse: collapse;
+    cursor: default;
+    display: inline-block;
+    position: relative;
+}
+
+.battlefield-cell{
+    border: 1px solid rgb(88, 88, 88);
+    padding: 0;
+    position: relative;
+    width: 2em;
+    height: 2em;
+}
+.battlefield-cell:hover{
+background: rgb(57, 182, 255);
+}
+
+.busy{
+background-color: rgb(226, 32, 32);
+}
+
+
+.actualTurn{
+    font-weight: bold;
+    color:goldenrod;
+}
