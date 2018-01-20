@@ -70,6 +70,14 @@ background: rgb(57, 182, 255);
 background-color: rgb(226, 32, 32);
 }
 
+.sunk{
+    background: goldenrod;
+}
+
+.miss{
+    background: black;
+}
+
 
 .actualTurn{
     font-weight: bold;

@@ -55,8 +55,8 @@ io.on('connection', function (socket) {
                 game.shot(position);
 
                 // Update game state on both clients.
-                io.to(socket.id).emit('update', game.getGameState(users[socket.id].player));
-                io.to(game.getPlayerId(opponent)).emit('update', game.getGameState(opponent));
+                io.to(socket.id).emit('update', game.getGameState(users[socket.id].player, opponent));
+                io.to(game.getPlayerId(opponent)).emit('update', game.getGameState(opponent, opponent));
 
             }
 
@@ -114,8 +114,8 @@ function joinWaitingPlayers() {
             gameId: game.id
         });
 
-        io.to(playersTab[0]).emit('update', game.getGameState(0));
-        io.to(playersTab[1]).emit('update', game.getGameState(1));
+        io.to(playersTab[0]).emit('update', game.getGameState(0, 0));
+        io.to(playersTab[1]).emit('update', game.getGameState(1, 1));
 
     }
 

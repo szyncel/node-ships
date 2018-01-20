@@ -31,6 +31,7 @@ socket.on('update', function (gameState) {
     console.log(gameState);
 
     Game.setTurn(gameState.turn);
+    Game.updateGrid(gameState.gridIndex, gameState.grid);
 
 
     //Game.updateGrid(gameState.gridIndex, gameState.grid);
@@ -50,7 +51,7 @@ $(".btn").on('click', () => {
 
 
 function sendShot(field) {
-    console.log('shot');
-    console.log(field);
+    //console.log('shot');
+    //console.log(field);
     socket.emit('shot', field);
 }
