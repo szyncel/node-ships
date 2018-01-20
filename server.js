@@ -45,6 +45,21 @@ io.on('connection', function (socket) {
     socket.join('test');
 
 
+    // Time for chat
+    socket.on('chat', (msg) => {
+        socket.broadcast.to('test').emit('chat', {
+            name: 'Przeciwnik',
+            message: msg,
+        });
+
+        // Send message to self
+        io.to(socket.id).emit('chat', {
+            name: 'Ja',
+            message: msg,
+        });
+    })
+
+
     /**
      * Handle shot from client
      */
@@ -131,7 +146,7 @@ function checkGameOver(game) {
     if (game.gameStatus === GameStatus.gameOver) {
         console.log((new Date().toISOString()) + ' Game ID ' + game.id + ' ended.');
         console.log(`winner:`, game.getWinnerId());
-          io.to(game.getWinnerId()).emit('gameover', true);
-          io.to(game.getLoserId()).emit('gameover', false);
+        io.to(game.getWinnerId()).emit('gameover', true);
+        io.to(game.getLoserId()).emit('gameover', false);
     }
 }

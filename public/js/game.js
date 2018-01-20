@@ -86,12 +86,11 @@ var Game = (function () {
         if (gameStatus !== GameStatus.gameOver) {
             turn = turnState;
             if (turn) {
-                $($('p.lead')[1]).removeClass("actualTurn");
-                $($('p.lead')[0]).addClass("actualTurn");
+                $('.turn').html('Twoja tura');
+                
                
             } else {
-                $($('p.lead')[0]).removeClass("actualTurn");
-                $($('p.lead')[1]).addClass("actualTurn");
+                $('.turn').html('Oczekiwanie na ruch przeciwnika');
             }
         }
     }

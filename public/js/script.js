@@ -11,6 +11,31 @@ socket.on('connect', function () {
 
 // socket.emit('init', window.location.pathname.substring(1, window.location.pathname.length));
 
+// chat
+socket.on('chat', (msg) => {
+    console.log(msg);
+    $('.msg-container ul').append(`<li><b>${msg.name}</b>: ${msg.message}</li>`);
+})
+
+// $('#msg-form').on('submit', (e) => {
+//     e.preventDefault();
+//     console.log($('#message').val());
+//     socket.emit('chat', $('#message').val());
+// });
+
+
+$('#message').bind("enterKey",function(e){
+    // console.log(e.target.value);
+    socket.emit('chat', e.target.value);
+    $('#message').val('');
+    //do stuff here
+ });
+ $('#message').keyup(function(e){
+     if(e.keyCode == 13)
+     {
+         $(this).trigger("enterKey");
+     }
+ });
 
 
 /**
@@ -40,17 +65,13 @@ socket.on('update', function (gameState) {
 });
 
 
-socket.on('gameover', function(isWinner) {
+socket.on('gameover', function (isWinner) {
     Game.setGameOver(isWinner);
-  });
+});
 
 
 
-$(".btn").on('click', () => {
-    console.log($('p.lead')[0]);
 
-
-})
 
 
 
