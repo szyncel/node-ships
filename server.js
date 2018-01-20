@@ -12,7 +12,10 @@ var port = 3000;
 
 var users = {};
 var gameIdCounter = 1;
-
+var GameStatus = {
+    inProgress: 1,
+    gameOver: 2
+}
 
 
 app.use(express.static(__dirname + '/public/'));
@@ -53,6 +56,8 @@ io.on('connection', function (socket) {
                 opponent = game.currentPlayer === 0 ? 1 : 0;
                 console.log('test:', socket.id);
                 game.shot(position);
+
+                checkGameOver(game);
 
                 // Update game state on both clients.
                 io.to(socket.id).emit('update', game.getGameState(users[socket.id].player, opponent));
@@ -119,4 +124,14 @@ function joinWaitingPlayers() {
 
     }
 
+}
+
+
+function checkGameOver(game) {
+    if (game.gameStatus === GameStatus.gameOver) {
+        console.log((new Date().toISOString()) + ' Game ID ' + game.id + ' ended.');
+        console.log(`winner:`, game.getWinnerId());
+          io.to(game.getWinnerId()).emit('gameover', true);
+          io.to(game.getLoserId()).emit('gameover', false);
+    }
 }

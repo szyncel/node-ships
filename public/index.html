@@ -13,26 +13,31 @@
 
 <body>
     <div class="container-full">
-        
-            <div class="col-md-12 header">
-                <h2>Statki
-                        <div class="panel-heading">Battleship Game #<span id="game-number"></span></div>
-                    <hr>
-                </h2>
-           
+
+        <div class="col-md-12 header">
+            <h2>Statki
+                <div class="panel-heading">Battleship Game #
+                    <span id="game-number"></span>
+                </div>
+                <hr>
+            </h2>
+
             <!-- Waiting room -->
             <div id="waiting-room" style="display:none;">
                 <p>You are connected to the server.</p>
                 <p>Waiting for another player...</p>
             </div>
+
+            <div id="game-over" style="display:none;">
+                <h2>Game Over</h2>
+                <h3></h3>
+            </div>
             <!-- Game -->
             <div id="game" class="row-fix" style="display:none;">
                 <div class="col-md-6">
                     <p class="lead">Ja</p>
-                    <div class="info">Info
-                        <p class="id">...</p>
-                        <p class="ready">...</p>
-                        <p class="room">...</p>
+                    <div class="shipLeft">
+                        Pozostało:<p>...</p>
                     </div>
 
 
@@ -165,10 +170,8 @@
                 </div>
                 <div class="col-md">
                     <p class="lead">Przeciwnik</p>
-                    <div class="info">Info
-                        <p class="id2">...</p>
-                        <p class="ready2">...</p>
-                        <p class="room2">...</p>
+                    <div class="shipLeft">
+                        Pozostało:<p>...</p>
                     </div>
                     <table class="battlefield-table">
                         <tbody>
@@ -185,112 +188,112 @@
                                 <td class="battlefield-cell empty" data-x="0" data-y="9"></td>
                             </tr>
                             <tr class="battlefield-row">
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
+                                <td class="battlefield-cell empty" data-x="1" data-y="0"></td>
+                                <td class="battlefield-cell empty" data-x="1" data-y="1"></td>
+                                <td class="battlefield-cell empty" data-x="1" data-y="2"></td>
+                                <td class="battlefield-cell empty" data-x="1" data-y="3"></td>
+                                <td class="battlefield-cell empty" data-x="1" data-y="4"></td>
+                                <td class="battlefield-cell empty" data-x="1" data-y="5"></td>
+                                <td class="battlefield-cell empty" data-x="1" data-y="6"></td>
+                                <td class="battlefield-cell empty" data-x="1" data-y="7"></td>
+                                <td class="battlefield-cell empty" data-x="1" data-y="8"></td>
+                                <td class="battlefield-cell empty" data-x="1" data-y="9"></td>
                             </tr>
                             <tr class="battlefield-row">
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
+                                <td class="battlefield-cell empty" data-x="2" data-y="0"></td>
+                                <td class="battlefield-cell empty" data-x="2" data-y="1"></td>
+                                <td class="battlefield-cell empty" data-x="2" data-y="2"></td>
+                                <td class="battlefield-cell empty" data-x="2" data-y="3"></td>
+                                <td class="battlefield-cell empty" data-x="2" data-y="4"></td>
+                                <td class="battlefield-cell empty" data-x="2" data-y="5"></td>
+                                <td class="battlefield-cell empty" data-x="2" data-y="6"></td>
+                                <td class="battlefield-cell empty" data-x="2" data-y="7"></td>
+                                <td class="battlefield-cell empty" data-x="2" data-y="8"></td>
+                                <td class="battlefield-cell empty" data-x="2" data-y="9"></td>
                             </tr>
                             <tr class="battlefield-row">
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
+                                <td class="battlefield-cell empty" data-x="3" data-y="0"></td>
+                                <td class="battlefield-cell empty" data-x="3" data-y="1"></td>
+                                <td class="battlefield-cell empty" data-x="3" data-y="2"></td>
+                                <td class="battlefield-cell empty" data-x="3" data-y="3"></td>
+                                <td class="battlefield-cell empty" data-x="3" data-y="4"></td>
+                                <td class="battlefield-cell empty" data-x="3" data-y="5"></td>
+                                <td class="battlefield-cell empty" data-x="3" data-y="6"></td>
+                                <td class="battlefield-cell empty" data-x="3" data-y="7"></td>
+                                <td class="battlefield-cell empty" data-x="3" data-y="8"></td>
+                                <td class="battlefield-cell empty" data-x="3" data-y="9"></td>
                             </tr>
                             <tr class="battlefield-row">
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
+                                <td class="battlefield-cell empty" data-x="4" data-y="0"></td>
+                                <td class="battlefield-cell empty" data-x="4" data-y="1"></td>
+                                <td class="battlefield-cell empty" data-x="4" data-y="2"></td>
+                                <td class="battlefield-cell empty" data-x="4" data-y="3"></td>
+                                <td class="battlefield-cell empty" data-x="4" data-y="4"></td>
+                                <td class="battlefield-cell empty" data-x="4" data-y="5"></td>
+                                <td class="battlefield-cell empty" data-x="4" data-y="6"></td>
+                                <td class="battlefield-cell empty" data-x="4" data-y="7"></td>
+                                <td class="battlefield-cell empty" data-x="4" data-y="8"></td>
+                                <td class="battlefield-cell empty" data-x="4" data-y="9"></td>
                             </tr>
                             <tr class="battlefield-row">
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
+                                <td class="battlefield-cell empty" data-x="5" data-y="0"></td>
+                                <td class="battlefield-cell empty" data-x="5" data-y="1"></td>
+                                <td class="battlefield-cell empty" data-x="5" data-y="2"></td>
+                                <td class="battlefield-cell empty" data-x="5" data-y="3"></td>
+                                <td class="battlefield-cell empty" data-x="5" data-y="4"></td>
+                                <td class="battlefield-cell empty" data-x="5" data-y="5"></td>
+                                <td class="battlefield-cell empty" data-x="5" data-y="6"></td>
+                                <td class="battlefield-cell empty" data-x="5" data-y="7"></td>
+                                <td class="battlefield-cell empty" data-x="5" data-y="8"></td>
+                                <td class="battlefield-cell empty" data-x="5" data-y="9"></td>
                             </tr>
                             <tr class="battlefield-row">
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
+                                <td class="battlefield-cell empty" data-x="6" data-y="0"></td>
+                                <td class="battlefield-cell empty" data-x="6" data-y="1"></td>
+                                <td class="battlefield-cell empty" data-x="6" data-y="2"></td>
+                                <td class="battlefield-cell empty" data-x="6" data-y="3"></td>
+                                <td class="battlefield-cell empty" data-x="6" data-y="4"></td>
+                                <td class="battlefield-cell empty" data-x="6" data-y="5"></td>
+                                <td class="battlefield-cell empty" data-x="6" data-y="6"></td>
+                                <td class="battlefield-cell empty" data-x="6" data-y="7"></td>
+                                <td class="battlefield-cell empty" data-x="6" data-y="8"></td>
+                                <td class="battlefield-cell empty" data-x="6" data-y="9"></td>
                             </tr>
                             <tr class="battlefield-row">
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
+                                <td class="battlefield-cell empty" data-x="7" data-y="0"></td>
+                                <td class="battlefield-cell empty" data-x="7" data-y="1"></td>
+                                <td class="battlefield-cell empty" data-x="7" data-y="2"></td>
+                                <td class="battlefield-cell empty" data-x="7" data-y="3"></td>
+                                <td class="battlefield-cell empty" data-x="7" data-y="4"></td>
+                                <td class="battlefield-cell empty" data-x="7" data-y="5"></td>
+                                <td class="battlefield-cell empty" data-x="7" data-y="6"></td>
+                                <td class="battlefield-cell empty" data-x="7" data-y="7"></td>
+                                <td class="battlefield-cell empty" data-x="7" data-y="8"></td>
+                                <td class="battlefield-cell empty" data-x="7" data-y="9"></td>
                             </tr>
                             <tr class="battlefield-row">
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
+                                <td class="battlefield-cell empty" data-x="8" data-y="0"></td>
+                                <td class="battlefield-cell empty" data-x="8" data-y="1"></td>
+                                <td class="battlefield-cell empty" data-x="8" data-y="2"></td>
+                                <td class="battlefield-cell empty" data-x="8" data-y="3"></td>
+                                <td class="battlefield-cell empty" data-x="8" data-y="4"></td>
+                                <td class="battlefield-cell empty" data-x="8" data-y="5"></td>
+                                <td class="battlefield-cell empty" data-x="8" data-y="6"></td>
+                                <td class="battlefield-cell empty" data-x="8" data-y="7"></td>
+                                <td class="battlefield-cell empty" data-x="8" data-y="8"></td>
+                                <td class="battlefield-cell empty" data-x="8" data-y="9"></td>
                             </tr>
                             <tr class="battlefield-row">
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
-                                <td class="battlefield-cell empty"></td>
+                                <td class="battlefield-cell empty" data-x="9" data-y="0"></td>
+                                <td class="battlefield-cell empty" data-x="9" data-y="1"></td>
+                                <td class="battlefield-cell empty" data-x="9" data-y="2"></td>
+                                <td class="battlefield-cell empty" data-x="9" data-y="3"></td>
+                                <td class="battlefield-cell empty" data-x="9" data-y="4"></td>
+                                <td class="battlefield-cell empty" data-x="9" data-y="5"></td>
+                                <td class="battlefield-cell empty" data-x="9" data-y="6"></td>
+                                <td class="battlefield-cell empty" data-x="9" data-y="7"></td>
+                                <td class="battlefield-cell empty" data-x="9" data-y="8"></td>
+                                <td class="battlefield-cell empty" data-x="9" data-y="9"></td>
                             </tr>
                         </tbody>
                     </table>

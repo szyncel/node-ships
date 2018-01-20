@@ -65,6 +65,22 @@ var Game = (function () {
         //generateShips();
     }
 
+    that.setGameOver = (winner) => {
+        gameStatus = GameStatus.gameOver;
+        turn = false;
+        console.log('wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww');
+        console.log(winner);
+        $('#game').hide();
+        $('#game-over').show();
+        if (winner) {
+            $('#game-over h3').html("Wygrałeś!");
+            console.log('wygrana');
+        } else {
+            $('#game-over h3').html("Przegrałeś ;(");
+            console.log('przegrana');
+        }
+    }
+
 
     that.setTurn = (turnState) => {
         if (gameStatus !== GameStatus.gameOver) {
@@ -72,6 +88,7 @@ var Game = (function () {
             if (turn) {
                 $($('p.lead')[1]).removeClass("actualTurn");
                 $($('p.lead')[0]).addClass("actualTurn");
+               
             } else {
                 $($('p.lead')[0]).removeClass("actualTurn");
                 $($('p.lead')[1]).addClass("actualTurn");
@@ -100,12 +117,12 @@ var Game = (function () {
         };
     };
 
-    drawShips=(player) => {
+    drawShips = (player) => {
         for (var i = 0; i <= 9; i++) {
             for (var j = 0; j <= 9; j++) {
                 if (grid[player].shots[i][j] == "2") {
                     $(table[player].rows[i].cells[j]).addClass('sunk');
-                }else if(grid[player].shots[i][j] == "1"){
+                } else if (grid[player].shots[i][j] == "1") {
                     $(table[player].rows[i].cells[j]).addClass('miss');
                 }
             };
@@ -113,7 +130,7 @@ var Game = (function () {
     };
 
 
-    
+
 
 
 

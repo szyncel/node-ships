@@ -29,6 +29,8 @@ socket.on('init', function (start) {
  */
 socket.on('update', function (gameState) {
     console.log(gameState);
+    $($('.shipLeft p')[0]).html(gameState.shipCount);
+    //console.log("Pozostało: ",gameState.shipCount);
 
     Game.setTurn(gameState.turn);
     Game.updateGrid(gameState.gridIndex, gameState.grid);
@@ -38,7 +40,9 @@ socket.on('update', function (gameState) {
 });
 
 
-
+socket.on('gameover', function(isWinner) {
+    Game.setGameOver(isWinner);
+  });
 
 
 
