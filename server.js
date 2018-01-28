@@ -6,7 +6,7 @@ var io = require('socket.io')(http);
 
 var ShipsGame = require('./app/game.js');
 
-var port = 3000;
+const port = process.env.PORT || 3000;
 
 var users = {};
 var gameIdCounter = 1;
