@@ -20,16 +20,16 @@ class Player {
             };
         };
 
-        this.generateShips(this.shipGrid);
+        // this.generateShips3(this.shipGrid);
 
-        // var rand = getRandomInt(0, 2);
-        // if (rand == 0) {
-        //     this.generateShips(this.shipGrid);
-        // } else if (rand == 1) {
-        //     this.generateShips2(this.shipGrid);
-        // } else {
-        //     this.generateShips3(this.shipGrid);
-        // }
+        var rand = getRandomInt(0, 2);
+        if (rand == 0) {
+            this.generateShips(this.shipGrid);
+        } else if (rand == 1) {
+            this.generateShips2(this.shipGrid);
+        } else {
+            this.generateShips3(this.shipGrid);
+        }
 
 
 
@@ -81,23 +81,32 @@ class Player {
 
 
     generateShips(playerTab) {
+        var rand = getRandomInt(0, 2);
+
         playerTab[0][1] = "ship";
         playerTab[0][2] = "ship";
         playerTab[0][3] = "ship";
 
-        // playerTab[2][4] = "ship";
-        // playerTab[2][5] = "ship";
-        // playerTab[2][6] = "ship";
+        playerTab[2][4] = "ship";
+        playerTab[2][5] = "ship";
+        playerTab[2][6] = "ship";
 
-        // playerTab[4][2] = "ship";
-        // playerTab[4][3] = "ship";
-        // playerTab[4][4] = "ship";
-        // playerTab[4][5] = "ship";
+        playerTab[4][2] = "ship";
+        playerTab[4][3] = "ship";
+        playerTab[4][4] = "ship";
+        playerTab[4][5] = "ship";
 
-        // playerTab[6][6] = "ship";
-        // playerTab[6][7] = "ship";
-        // playerTab[6][8] = "ship";
-        // playerTab[6][9] = "ship";
+        playerTab[6][6] = "ship";
+        playerTab[6][7] = "ship";
+        playerTab[6][8] = "ship";
+        playerTab[6][9] = "ship";
+
+        playerTab[7][0] = "ship";
+        playerTab[8][0] = "ship";
+
+
+        playerTab[8][8]="ship";
+       
     }
     generateShips2(playerTab) {
         playerTab[0][3] = "ship";
@@ -132,10 +141,9 @@ class Player {
         playerTab[4][5] = "ship";
         playerTab[4][6] = "ship";
 
-        playerTab[8][6] = "ship";
-        playerTab[8][7] = "ship";
+        playerTab[7][8] = "ship";
         playerTab[8][8] = "ship";
-        playerTab[8][9] = "ship";
+        playerTab[9][8] = "ship";
     }
 }
 

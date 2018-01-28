@@ -72,11 +72,12 @@ var Game = (function () {
         console.log(winner);
         $('#game').hide();
         $('#game-over').show();
+        $('.remaing').hide();
         if (winner) {
-            $('#game-over h3').html("Wygrałeś!");
+            $('#res').html("Wygrałeś!");
             console.log('wygrana');
         } else {
-            $('#game-over h3').html("Przegrałeś ;(");
+            $('#res').html("Przegrałeś ;(");
             console.log('przegrana');
         }
     }

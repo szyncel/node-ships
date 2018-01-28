@@ -1,21 +1,22 @@
 var socket = io();
 
-//var game = Game();
+
 /**
- * Successfully connected to server event
+ * Pomyślnie połączono z serverem
  */
 socket.on('connect', function () {
     console.log('Connected to server.');
     $('#waiting-room').show();
 });
 
-// socket.emit('init', window.location.pathname.substring(1, window.location.pathname.length));
 
-// chat
+
+
 socket.on('chat', (msg) => {
-    console.log(msg);
     $('.msg-container ul').append(`<li><b>${msg.name}</b>: ${msg.message}</li>`);
-})
+});
+
+
 
 // $('#msg-form').on('submit', (e) => {
 //     e.preventDefault();
@@ -25,10 +26,8 @@ socket.on('chat', (msg) => {
 
 
 $('#message').bind("enterKey",function(e){
-    // console.log(e.target.value);
     socket.emit('chat', e.target.value);
     $('#message').val('');
-    //do stuff here
  });
  $('#message').keyup(function(e){
      if(e.keyCode == 13)
@@ -39,7 +38,7 @@ $('#message').bind("enterKey",function(e){
 
 
 /**
- * Users has joined a game
+ * Gracz dołączył do gry
  */
 socket.on('init', function (start) {
     console.log(start);
@@ -50,18 +49,16 @@ socket.on('init', function (start) {
 })
 
 /**
- * Update player's game state
+ * Aktualizacja stanu gry
  */
 socket.on('update', function (gameState) {
     console.log(gameState);
-    $($('.shipLeft p')[0]).html(gameState.shipCount);
-    //console.log("Pozostało: ",gameState.shipCount);
-
+    $('.remaing').show();
+    $('#left').html(gameState.shipCount);
+    
     Game.setTurn(gameState.turn);
     Game.updateGrid(gameState.gridIndex, gameState.grid);
 
-
-    //Game.updateGrid(gameState.gridIndex, gameState.grid);
 });
 
 
@@ -76,7 +73,5 @@ socket.on('gameover', function (isWinner) {
 
 
 function sendShot(field) {
-    //console.log('shot');
-    //console.log(field);
     socket.emit('shot', field);
 }

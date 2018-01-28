@@ -1,12 +1,10 @@
+// Wykorzystujemy framework Express, który umożliwi nam obsługę protokołu HTTP oraz Socket.IO
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
 var ShipsGame = require('./app/game.js');
-var Room = require('./app/room.js');
-var rooms = new Room();
-// var game = new ShipsGame();
 
 var port = 3000;
 
@@ -40,19 +38,18 @@ io.on('connection', function (socket) {
         inGame: null,
         player: null
     };
-    // create user object for additional data
-
+    //Dołączamy do pokoju o nazwie "test"
     socket.join('test');
 
-
-    // Time for chat
+    // Nasłuchujemy eventu 'chat message', który zostaje wysłany przez klienta w momencie wysyłania wiadomości
     socket.on('chat', (msg) => {
+
+        // Emitujemy  wiadomość do przeciwnika. Drugim parametrem przekazujemy treść wiadomości
         socket.broadcast.to('test').emit('chat', {
             name: 'Przeciwnik',
             message: msg,
         });
-
-        // Send message to self
+        // Emitujemy  wiadomość do siebie.
         io.to(socket.id).emit('chat', {
             name: 'Ja',
             message: msg,
@@ -61,7 +58,7 @@ io.on('connection', function (socket) {
 
 
     /**
-     * Handle shot from client
+     * Event służący do obsługi strzału przez graczy
      */
     socket.on('shot', (position) => {
         var game = users[socket.id].inGame,
@@ -69,23 +66,26 @@ io.on('connection', function (socket) {
         if (game !== null) {
             if (game.currentPlayer === users[socket.id].player) {
                 opponent = game.currentPlayer === 0 ? 1 : 0;
-                console.log('test:', socket.id);
+
+                //obsługa strzału
                 game.shot(position);
 
+                //Sprawdzamy czy gra dobiegła końca
                 checkGameOver(game);
 
-                // Update game state on both clients.
+                //Aktualizacja stanu gry obu graczy
+                //Emitowanie  eventu dla aktualnego gracza
                 io.to(socket.id).emit('update', game.getGameState(users[socket.id].player, opponent));
+                //Emitowanie  eventu dla przeciwnika
                 io.to(game.getPlayerId(opponent)).emit('update', game.getGameState(opponent, opponent));
-
-            }
-
-        }
-        //console.log(position);
+            };
+        };
     });
 
 
-
+    /**
+     * Event obługujący rozłączenie gracza z serwera
+     */
     socket.on('disconnect', function () {
         console.log((new Date().toISOString()) + ' ID ' + socket.id + ' disconnected.');
         delete users[socket.id];
@@ -100,17 +100,10 @@ io.on('connection', function (socket) {
 
 function joinWaitingPlayers() {
     var players = io.sockets.adapter.rooms['test'];
-
-    // for (var id in io.sockets.adapter.rooms['test']) {
-    //     console.log(io.sockets.adapter.nsp.connected[id]);
-    //   }
-
     var playersTab = [];
     for (var i in players.sockets) {
         playersTab.push(i);
     }
-
-
 
     if (playersTab.length == 2) {
         console.log('mamy fula');

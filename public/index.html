@@ -30,14 +30,24 @@
 
                 <!-- Waiting room -->
                 <div id="waiting-room" style="display:none;">
-                    <p>You are connected to the server.</p>
-                    <p>Waiting for another player...</p>
+                    <div class="row">
+                        <h2>Połączyłeś sie z serverem.</h2>
+                    </div>
+                    <div class="row">
+                        <h3>Oczekiwanie na przeciwnika...</h3>
+                    </div>
+
+
                 </div>
 
                 <!-- GameOver -->
                 <div id="game-over" style="display:none;">
-                    <h2>Game Over</h2>
-                    <h3></h3>
+                    <div class="row">
+                        <h2>Koniec gry.</h2>
+                    </div>
+                    <div class="row">
+                        <h3 id="res"></h3>
+                    </div>
                 </div>
 
                 <!-- Game -->
@@ -49,7 +59,7 @@
                             <p>...</p>
                         </div> -->
 
-                        <h2>Your Ships</h2>
+                        <h2>Twoje statki</h2>
                         <table class="battlefield-table">
                             <tbody>
                                 <tr class="battlefield-row">
@@ -183,7 +193,7 @@
                             Pozostało:
                             <p>...</p>
                         </div> -->
-                        <h2>Shooting grid</h2>
+                        <h2>Statki przeciwnika</h2>
                         <table class="battlefield-table">
                             <tbody>
                                 <tr class="battlefield-row">
@@ -312,27 +322,29 @@
 
                 </div>
                 <footer>
-                    <p class="remaing">Remaining hit points: 18</p>
+                    <p class="remaing" style="display:none;">Pozostało:
+                        <span id="left">...</span>
+                    </p>
                 </footer>
 
             </div>
         </div>
         <div class="right-col">
-            
-                <div class="msg-container">
-                    <ul>
-                    </ul>
-                </div>
-                <div class="form-container">
-                    <form>
-                        <textarea id="message"></textarea>
-                        <!-- <button type="submit" class="btn btn-primary">Wyślij</button> -->
-                    </form>
-                </div>
+
+            <div class="msg-container">
+                <ul>
+                </ul>
+            </div>
+            <div class="form-container">
+                <form>
+                    <textarea id="message"></textarea>
+                    <!-- <button type="submit" class="btn btn-primary">Wyślij</button> -->
+                </form>
+            </div>
 
 
 
-            
+
         </div>
 
 
